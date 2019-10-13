@@ -12,6 +12,8 @@
     
     <title>
         
+            记一次Sentry部署过程 | 
+        
         Trick的Blog--搬砖工程师
     </title>
 
@@ -34,7 +36,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Trick">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",监控">
 
     <!-- Site Verification -->
     
@@ -63,15 +65,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Trick的Blog--搬砖工程师">
+    <meta property="og:title" content="记一次Sentry部署过程 | Trick的Blog--搬砖工程师">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="监控"> 
 
+    
+        <meta property="article:published_time" content="10月 14, 2019" />
+        <meta property="article:modified_time" content="10月 14, 2019" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="Trick的Blog--搬砖工程师">
+    <meta name="twitter:title" content="记一次Sentry部署过程 | Trick的Blog--搬砖工程师">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -79,35 +84,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com" />
+        <link rel="canonical" href="http://yoursite.com/2019/10/14/记一次Sentry部署过程/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
+
+
 <script type="application/ld+json">
 {
-    "@context": "http://schema.org",
-    "@type": "Website",
+    "@context": "https://schema.org",
+    "@type": "Article",
     "publisher": {
         "@type": "Organization",
         "name": "Trick的Blog--搬砖工程师",
         "logo": "/img/favicon.png"
     },
-    "url": "http://yoursite.com/index.html",
-    "image": {
-        "@type": "ImageObject",
-        "url": "/img/favicon.png"
+    "author": {
+        "@type": "Person",
+        "name": "Trick",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "前端路上的菜鸟"
     },
+    "headline": "记一次Sentry部署过程",
+    "url": "http://yoursite.com/2019/10/14/记一次Sentry部署过程/index.html",
+    "datePublished": "10月 14, 2019",
+    "dateModified": "10月 14, 2019",
+    "description": "",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://yoursite.com"
-    },
-    "description": ""
+    }
 }
 </script>
-
-
 
 
     
@@ -295,284 +308,273 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
+                    <!-- Post TOC -->
+
     
-        <!-- Paradox Header -->
-        <!-- Daily pic -->
-<div class="mdl-card mdl-shadow--2dp daily-pic mdl-cell mdl-cell--8-col index-top-block">
-
-    <!-- Pic & Slogan -->
-    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/daily_pic.png)">
-        <p class="index-top-block-slogan"><a href="#">
-        
-            
-                前端路上的菜鸟
-            
-        
-        </a></p>
-    </div>
-
-    <!-- Avatar & Name -->
-    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-        <!-- Author Avatar -->
-        <div id="author-avatar">
-            <img src="/img/avatar.png" width="32px" height="32px" alt="avatar">
-        </div>
-        <div>
-            <strong>Trick</strong>
-        </div>
-    </div>
-</div>
-
-        <!-- Blog info -->
-<div class="mdl-card mdl-shadow--2dp something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop index-top-block">
-
-    <!-- Search -->
-    
-    <!-- Google -->
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" method="post" action="">
-        <label id="search-label" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent mdl-shadow--4dp" for="search">
-            <i class="material-icons mdl-color-text--white" role="presentation">search</i>
-        </label>
-
-        <form autocomplete="off" id="search-form" method="get" action="//google.com/search" accept-charset="UTF-8" class="mdl-textfield__expandable-holder" target="_blank">
-            <input class="mdl-textfield__input search-input" type="search" name="q" id="search" placeholder="">
-            <label id="search-form-label" class="mdl-textfield__label" for="search"></label>
-
-            <input type="hidden" name="sitesearch" value="http://yoursite.com">
-        </form>
-    </div>
-
-
-
-
-
-
-
-    <!-- LOGO -->
-    <div class="something-else-logo mdl-color--white mdl-color-text--grey-600">
-        <a href="#" target="_blank">
-            <img src="/img/logo.png" alt="logo" />
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
         </a>
     </div>
+    -->
 
-    <!-- Infomation -->
-    <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
-        <!-- Blog Title -->
-        <div>
-            <strong>Trick的Blog--搬砖工程师</strong>
-        </div>
-        <div class="section-spacer"></div>
-
-        <!-- Pages -->
-        <button id="show-pages-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">view_carousel</i>
-            <span class="visuallyhidden">Pages</span>
-        </button>
-        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="show-pages-button">
-            
-        </ul>
-
-        <!-- Menu -->
-        <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">more_vert</i>
-            <span class="visuallyhidden">show menu</span>
-        </button>
-        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="menubtn">
-            
-
-            
-
-            
-                <a class="index_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Trick的Blog--搬砖工程师&url=http://yoursite.com/&pic=&searchPic=false&style=simple" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到微博
-                    </li>
-                </a>
-            
-
-            
-                <a class="index_share-link" href="https://twitter.com/intent/tweet?text=Trick的Blog--搬砖工程师&url=http://yoursite.com/&via=Trick" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到 Twitter
-                    </li>
-                </a>
-            
-
-            
-                <a class="index_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/index.html" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到 Facebook
-                    </li>
-                </a>
-            
-
-            
-                <a class="index_share-link" href="https://plus.google.com/share?url=http://yoursite.com/" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        分享到 Google+
-                    </li>
-                </a>
-            
-
-            
-
-            
-
-            
-        </ul>
-    </div>
-</div>
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
 
     
-    <div class="locate-thumbnail-symbol"></div>
-
-    <!-- Pin on top -->
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#部署环境"><span class="post-toc-number">2.</span> <span class="post-toc-text">部署环境</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、安装docker"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1、安装docker</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、安装-pip"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2、安装 pip</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、安装-docker-compose"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3、安装 docker-compose</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4、-搭建-sentry"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">4、 搭建 sentry</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5、-实践"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">5、 实践</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6、-遇到问题"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">6、 遇到问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7、-小结"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">7、 小结</span></a></li></ol></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/10/14/记一次Sentry部署过程/">记一次Sentry部署过程</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            前言
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/10/14/记一次Sentry部署过程/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Trick's avatar">
-            </div>
-            <div>
-                <strong>Trick</strong>
-                <span>10月 14, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/05/26/File文件上传/">File文件上传</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/05/26/File文件上传/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Trick's avatar">
-            </div>
-            <div>
-                <strong>Trick</strong>
-                <span>5月 26, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                记一次Sentry部署过程
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Trick</strong>
+        <span>10月 14, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/监控/">监控</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=记一次Sentry部署过程&url=http://yoursite.com/2019/10/14/记一次Sentry部署过程/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=记一次Sentry部署过程&url=http://yoursite.com/2019/10/14/记一次Sentry部署过程/index.html&via=Trick" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/14/记一次Sentry部署过程/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/14/记一次Sentry部署过程/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><hr>
+<p><code>Sentry</code> 是一个开源的实时错误报告工具，支持前后端、其他后端语言以及主流框架等。既然是开源，那么我们可以在自己的服务器上搭建，本文记录搭建的过程以及搭建过程中遇到的一些问题，也可以跟着这个教程来搭建一遍</p>
+<h2 id="部署环境"><a href="#部署环境" class="headerlink" title="部署环境"></a>部署环境</h2><hr>
+<p><strong>Ubuntu 16.04</strong></p>
+<p>官网提供了两种部署方式</p>
+<blockquote>
+<p>1、 docker</p>
+<p>2、 python</p>
+</blockquote>
+<p>这里我使用的是 <code>docker</code> 的方式来安装，比较快捷 </p>
+<p>先更新下 apt-get包（这个过程可能需要点时间）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get update &amp;&amp; apt-get upgrade</div></pre></td></tr></table></figure>
+<h3 id="1、安装docker"><a href="#1、安装docker" class="headerlink" title="1、安装docker"></a>1、安装docker</h3><hr>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget -qO- https://get.docker.com/ | sh</div><div class="line"></div><div class="line">// 查看 docker 是否安装成功</div><div class="line">docker -v</div><div class="line">// Docker version 18.09.5</div><div class="line">证明docker安装成功</div></pre></td></tr></table></figure>
+<p>由于 <code>docker</code>镜像都在国外，因此下载会比较慢，这里用 <a href="https://www.daocloud.io/mirror#accelerator-doc&quot;%3Ehttps://www.daocloud.io/mirror#accelerator-doc%3C" target="_blank" rel="external">Docker加速器</a> 运行下面命令即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://4031ebb7.m.daocloud.io</div></pre></td></tr></table></figure>
+<h3 id="2、安装-pip"><a href="#2、安装-pip" class="headerlink" title="2、安装 pip"></a>2、安装 <code>pip</code></h3><hr>
+<p>执行下面命令安装（注意没有安装 <code>python</code> 的话需要安装）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget https://bootstrap.pypa.io/get-pip.py --no-check-certificate # 下载文件 </div><div class="line"></div><div class="line">python get-pip.py #执行安装 </div><div class="line"></div><div class="line">pip -V #查看pip版本</div><div class="line">// pip 19.0.3 from /usr/local/lib/python3.5/dist-packages/pip (python 3.5)</div></pre></td></tr></table></figure>
+<h3 id="3、安装-docker-compose"><a href="#3、安装-docker-compose" class="headerlink" title="3、安装 docker-compose"></a>3、安装 <code>docker-compose</code></h3><hr>
+<p>这里使用 <code>pip</code> 管理工具来安装 <code>docker-compose</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo pip install docker-compose</div><div class="line"></div><div class="line">docker-compose --version // 查看版本是否安装成功</div></pre></td></tr></table></figure>
+<p><strong>上述步骤之后就可以着手搭建 <code>sentry</code></strong></p>
+<h3 id="4、-搭建-sentry"><a href="#4、-搭建-sentry" class="headerlink" title="4、 搭建 sentry"></a>4、 搭建 <code>sentry</code></h3><hr>
+<p>首先从github上拉取 <code>sentry</code>，运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/getsentry/onpremise.git</div></pre></td></tr></table></figure>
+<p>拉取下来后，进入目录 <code>onpremise</code>，可以看到里面有份<code>README.MD</code>，按照这份说明文档步骤安装就行（这份当时拉下来的操作文档，具体有更新的话以拉取下来的最新说明文档为准）</p>
+<blockquote>
+<ol>
+<li><code>docker volume create --name=sentry-data &amp;&amp; docker volume create --name=sentry-postgres</code> - Make our local database and sentry volumes<br> Docker volumes have to be created manually, as they are declared as external to be more durable.</li>
+<li><code>cp -n .env.example .env</code> - create env config file</li>
+<li><code>docker-compose build</code> - Build and tag the Docker services</li>
+<li><code>docker-compose run --rm web config generate-secret-key</code> - Generate a secret key.<br> Add it to <code>.env</code> as <code>SENTRY_SECRET_KEY</code>.</li>
+<li><code>docker-compose run --rm web upgrade</code> - Build the database.<br> Use the interactive prompts to create a user account.</li>
+<li><code>docker-compose up -d</code> - Lift all services (detached/background mode).</li>
+<li>Access your instance at <code>localhost:9000</code>!</li>
+</ol>
+</blockquote>
+<h3 id="5、-实践"><a href="#5、-实践" class="headerlink" title="5、 实践"></a>5、 实践</h3><hr>
+<p>搭建完成之后打开 <code>localhost:9000</code> 端口，可以看到登录界面，输入上面搭建时候设置的邮箱和密码</p>
+<p><strong>注意！！！！</strong></p>
+<p>输入账号密码登录之后，会进入一个初始化的界面，要填写 <code>ROOT URL</code>，如果遇到填写完成之后点击保存一直提示 <strong>保存错误</strong> 的时候，按照下面方法来操作就可以解决</p>
+<p>编辑文件 <code>config.yml</code>，添加下面这一段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">auth.allow-registration: false</div><div class="line">beacon.anonymous: true</div><div class="line">mail.from: &quot;&quot;</div><div class="line">mail.host: &quot;&quot;</div><div class="line">mail.password: &quot;&quot;</div><div class="line">mail.port: 465</div><div class="line">mail.use-tls: true</div><div class="line">mail.username: &quot;&quot;</div><div class="line">system.admin-email: &quot;&quot;</div><div class="line">system.url-prefix: &quot;&quot;</div></pre></td></tr></table></figure>
+<p>然后设置下 <code>sentry</code> 的版本，如下命令，<code>CONTAINER</code> 换成你 docker 容器里面 web 的 name，可以使用  <code>docker ps</code> 命令看下，我的是 <code>onpremise_web_1</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec CONTAINER sentry config set sentry:version-configured &apos;9.1.0&apos;</div></pre></td></tr></table></figure>
+<p>执行第一次的时候我情况是报错了，再执行一次就行</p>
+<p>这时候刷新下页面，你可能会发现还是停留在了这个初始化设置页面，一般等一两个小时再刷新下就进去了，具体原因我也不清楚，好像是因为 docker 运行缓存问题？</p>
+<p>打开进入之后可以点击右上角添加新的项目 <code>add project</code>，选择语言或者框架</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/4/19/16a35442c2ccb4f6?w=1337&amp;h=560&amp;f=jpeg&amp;s=206880" alt="658fec1048d756edcf376d433f6cae85.png"></p>
+<h3 id="6、-遇到问题"><a href="#6、-遇到问题" class="headerlink" title="6、 遇到问题"></a>6、 遇到问题</h3><p>按照客户端教程下载相关库之后需要填 <code>DSN</code> ，在项目的 <code>settings</code> 里面找到 <code>DSN</code> 发现是空的并且不能填，然后上网找了下发现 <code>DSN</code> 是由下面格式组成的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://pubilckey:secretkey@localhost:9000/&lt;project&gt;</div></pre></td></tr></table></figure>
+<p>按照这个格式填写到客户端的 <code>DSN</code> 之后尝试下触发错误，可以看到界面会显示具体的错误详细信息</p>
+<h3 id="7、-小结"><a href="#7、-小结" class="headerlink" title="7、 小结"></a>7、 小结</h3><p>搭建完后按照教程集成到 <code>vue</code> 和 <code>flask</code> 中，发现效果还不错，触发错误后可以看到具体的错误详细信息，具体到哪一行，触发这个错误的终端的详细信息，但 <code>vue</code> 目前大部分是混淆压缩过的，因此得上传 <code>sourcemap</code> 才可以看到具体错误在那个组件，这个我还在研究当中。</p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/05/26/File文件上传/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -847,12 +849,6 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
-
-    <!-- Swiftye -->
-    
-
-    <!-- Local Search-->
-    
 
 
 <!-- UC Browser Compatible -->
