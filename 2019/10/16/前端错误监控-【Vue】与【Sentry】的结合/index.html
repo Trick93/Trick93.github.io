@@ -12,7 +12,7 @@
     
     <title>
         
-            归档 | 
+            前端错误监控 -【Vue】与【Sentry】的结合 | 
         
         Trick的Blog--搬砖工程师
     </title>
@@ -36,7 +36,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Trick">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",监控">
 
     <!-- Site Verification -->
     
@@ -65,15 +65,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档 | Trick的Blog--搬砖工程师">
+    <meta property="og:title" content="前端错误监控 -【Vue】与【Sentry】的结合 | Trick的Blog--搬砖工程师">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="监控"> 
 
+    
+        <meta property="article:published_time" content="10月 16, 2019" />
+        <meta property="article:modified_time" content="10月 16, 2019" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档 | Trick的Blog--搬砖工程师">
+    <meta name="twitter:title" content="前端错误监控 -【Vue】与【Sentry】的结合 | Trick的Blog--搬砖工程师">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -81,13 +84,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/archives/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2019/10/16/前端错误监控-【Vue】与【Sentry】的结合/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Trick的Blog--搬砖工程师",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Trick",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "前端路上的菜鸟"
+    },
+    "headline": "前端错误监控 -【Vue】与【Sentry】的结合",
+    "url": "http://yoursite.com/2019/10/16/前端错误监控-【Vue】与【Sentry】的结合/index.html",
+    "datePublished": "10月 16, 2019",
+    "dateModified": "10月 16, 2019",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com"
+    }
+}
+</script>
 
 
     
@@ -275,275 +308,279 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Vue与Sentry初步结合"><span class="post-toc-number">2.</span> <span class="post-toc-text">Vue与Sentry初步结合</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Sourcemap结合"><span class="post-toc-number">3.</span> <span class="post-toc-text">Sourcemap结合</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#可能遇到的问题"><span class="post-toc-number">4.</span> <span class="post-toc-text">可能遇到的问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小结"><span class="post-toc-number">5.</span> <span class="post-toc-text">小结</span></a></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/10/16/JS中的【位操作符】浅识/">JS中的【位操作符】浅识</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            前言
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/10/16/JS中的【位操作符】浅识/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Trick's avatar">
-            </div>
-            <div>
-                <strong>Trick</strong>
-                <span>10月 16, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/10/16/前端错误监控-【Vue】与【Sentry】的结合/">前端错误监控 -【Vue】与【Sentry】的结合</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            前言作为一个前端，...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/10/16/前端错误监控-【Vue】与【Sentry】的结合/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Trick's avatar">
-            </div>
-            <div>
-                <strong>Trick</strong>
-                <span>10月 16, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/10/14/记一次Sentry部署过程/">记一次Sentry部署过程</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            前言
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/10/14/记一次Sentry部署过程/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Trick's avatar">
-            </div>
-            <div>
-                <strong>Trick</strong>
-                <span>10月 14, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/05/26/File文件上传/">File文件上传</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/05/26/File文件上传/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Trick's avatar">
-            </div>
-            <div>
-                <strong>Trick</strong>
-                <span>5月 26, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                前端错误监控 -【Vue】与【Sentry】的结合
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Trick</strong>
+        <span>10月 16, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/监控/">监控</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=前端错误监控 -【Vue】与【Sentry】的结合&url=http://yoursite.com/2019/10/16/前端错误监控-【Vue】与【Sentry】的结合/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=前端错误监控 -【Vue】与【Sentry】的结合&url=http://yoursite.com/2019/10/16/前端错误监控-【Vue】与【Sentry】的结合/index.html&via=Trick" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/16/前端错误监控-【Vue】与【Sentry】的结合/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/16/前端错误监控-【Vue】与【Sentry】的结合/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作为一个前端，你是不是经常遇到这样情况：</p>
+<blockquote>
+<p><strong>客户：为什么我这个页面看不到数据？？</strong> <br><br><strong>我：（急忙打开网站），我这边数据显示正常！</strong> <br><br><strong>客户：没有啊！我这边看不到！</strong> <br><br><strong>我：（语无伦次），可我…我这边正常的呀</strong> <br><br><strong>客户：BALABALA</strong></p>
+</blockquote>
+<p>相信各位前端er经常遇到这样的问题，明明自己本机打开一切正常，到了客户那边问题却一大堆，还根本定位不到问题，总不能叫客户打开 <code>F12</code>  查看控制台看下什么错误吧！因此本文主要介绍如何将 <code>vue</code> 与 <code>sentry</code> 结合，达到实时监控并收集错误日志的效果。</p>
+<blockquote>
+<p><strong>不知道 <code>sentry</code> ？赶紧看我上一篇文章  <a href="https://juejin.im/post/5cb9a8b4f265da03ba0e2806" target="_blank" rel="external">记一次Sentry部署过程</a></strong></p>
+</blockquote>
+<h2 id="Vue与Sentry初步结合"><a href="#Vue与Sentry初步结合" class="headerlink" title="Vue与Sentry初步结合"></a>Vue与Sentry初步结合</h2><p>搭建好 <code>Sentry</code> 后，点击创建项目，选 <code>Browser -&gt; Vue</code>，创建完成后，可以按照里面的提示或者 <a href="https://docs.sentry.io/platforms/javascript/vue/" target="_blank" rel="external">官网</a> 的教程来操作，步骤如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 安装官方提供的库</span></div><div class="line">yarn add @sentry/browser</div><div class="line">yarn add @sentry/integrations</div></pre></td></tr></table></figure>
+<p>在 <code>main.js</code> 文件里面添加下面一段代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> Sentry <span class="keyword">from</span> <span class="string">'@sentry/browser'</span></div><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> Integrations <span class="keyword">from</span> <span class="string">'@sentry/integrations'</span></div><div class="line"></div><div class="line">Sentry.init(&#123;</div><div class="line">    dsn: <span class="string">'http://&lt;publickey&gt;:&lt;secretkey&gt;@xxx.xxx.xxx.xxx:9000/&lt;project id&gt;'</span>,</div><div class="line">    integrations: [</div><div class="line">    <span class="keyword">new</span> Integrations.Vue(&#123;</div><div class="line">        Vue,</div><div class="line">        attachProps: <span class="literal">true</span></div><div class="line">    &#125;)</div><div class="line">    ]</div><div class="line">&#125;)</div><div class="line"><span class="comment">// 关于 DSN 我在上一篇有介绍到</span></div></pre></td></tr></table></figure>
+<p>添加完毕后，我们 <code>npm run dev</code> 来看下吧，随便在某个组件地方制造一个错误</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/4/26/16a58a9f0536d953?w=371&amp;h=90&amp;f=png&amp;s=2454" alt="Image.png"></p>
+<p>然后让我们来打开看下有没有收集到这个错误日志，成功的话应该像如下图片</p>
+<p><a href="https://user-gold-cdn.xitu.io/2019/4/26/16a58a8f78f14f5f?w=1309&amp;h=157&amp;f=png&amp;s=25370" target="_blank" rel="external"><img src="https://user-gold-cdn.xitu.io/2019/4/26/16a58a8f78f14f5f?w=1309&amp;h=157&amp;f=png&amp;s=25370" alt="Image1.png"></a></p>
+<p>表明我们刚才触发的错误已经被 <code>sentry</code> 成功捕获到了，可以点击进去查看详情</p>
+<p><a href="https://user-gold-cdn.xitu.io/2019/4/26/16a58a902b0e1f46?w=1010&amp;h=700&amp;f=png&amp;s=82451" target="_blank" rel="external"><img src="https://user-gold-cdn.xitu.io/2019/4/26/16a58a902b0e1f46?w=1010&amp;h=700&amp;f=png&amp;s=82451" alt="2019-04-26_113459.png"></a></p>
+<p>可以看到错误了 <code>this.aa is not a function</code>，这样我们已经初步成功的将 <code>vue</code> 和 <code>sentry</code> 结合上了</p>
+<h2 id="Sourcemap结合"><a href="#Sourcemap结合" class="headerlink" title="Sourcemap结合"></a>Sourcemap结合</h2><p>上面我们已经成功的在 <code>vue</code> 中集成了 <code>sentry</code> 并捕获到了错误，但是不是发现了一个问题，虽然知道错误内容，可是我们不知道具体在哪个组件的哪一行。这是因为用 <code>webpack</code> 打包过程中会将js文件进行压缩混淆等，因此要准确定位到错误，需要我们将 <code>sourcemap</code> 也上传一份供 <code>sentry</code> 解析，这里提供了两种方式，可以在 <a href="https://docs.sentry.io/platforms/javascript/sourcemaps/generation/" target="_blank" rel="external">官网</a> 中查看资料</p>
+<blockquote>
+<p>sentry-cli <br><br>@sentry/webpack-plugin</p>
+</blockquote>
+<p>这里我选择 <code>sentry-cli</code> 来完成，<code>@sentry/webpack-plugin</code> 主要是用来webpack打包时候同时上传一份 <code>sourcemap</code> 到 <code>sentry</code></p>
+<p>全局安装 <code>@sentry/cli</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i -g @sentry/cli</div></pre></td></tr></table></figure>
+<p>安装完毕后，进入网站生成 <code>auth token</code>，具体步骤如下：</p>
+<p>点击 <code>账号-&gt;API keys</code>，点击 <code>Create New Token</code></p>
+<p><a href="https://user-gold-cdn.xitu.io/2019/4/26/16a58a8f79c059ee?w=262&amp;h=764&amp;f=png&amp;s=29398" target="_blank" rel="external"><img src="https://user-gold-cdn.xitu.io/2019/4/26/16a58a8f79c059ee?w=262&amp;h=764&amp;f=png&amp;s=29398" alt="Image2.png"></a></p>
+<p>按照下图，记得 <code>project:releases</code> 和 <code>project:write</code> 要勾选上</p>
+<p><a href="https://user-gold-cdn.xitu.io/2019/4/26/16a58a8f79e9c6c4?w=1104&amp;h=296&amp;f=png&amp;s=20169" target="_blank" rel="external"><img src="https://user-gold-cdn.xitu.io/2019/4/26/16a58a8f79e9c6c4?w=1104&amp;h=296&amp;f=png&amp;s=20169" alt="Image3.png"></a></p>
+<p>生成完成 <code>token</code> 后可以进行下一步，进入项目的根目录，执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sentry-cli --url http://xxx.xxx.xxx.xxx:9000 login</div></pre></td></tr></table></figure>
+<p><a href="https://user-gold-cdn.xitu.io/2019/4/26/16a58a8f7901abdb?w=629&amp;h=119&amp;f=png&amp;s=7299" target="_blank" rel="external"><img src="https://user-gold-cdn.xitu.io/2019/4/26/16a58a8f7901abdb?w=629&amp;h=119&amp;f=png&amp;s=7299" alt="Image4.png"></a></p>
+<p>这里因为我们上面已经成功生成了 <code>auth token</code>，所以输入 <code>n</code> 后会提示你输入刚才那个token，这样就配置完成了</p>
+<p>下一步我们在 <code>sentry</code> 要给你的项目先设置一个版本号，这样它才知道要对应去找哪里的 <code>sourcemap</code> 进行解析</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#</span> sentry-cli releases -o 组织名 -p 项目名 new 版本号</div><div class="line">sentry-cli releases -o sentry -p vue new pro@1.0.1</div><div class="line"><span class="meta">#</span> Created release pro@1.0.1.</div></pre></td></tr></table></figure>
+<p><strong>组织名</strong> 可以在你账号里面看到，这样已经创建完成一个新的版本，我们可以打开网站看下，已经有我们刚创建的版本号了</p>
+<p><a href="https://user-gold-cdn.xitu.io/2019/4/26/16a58a9187e8ba91?w=1362&amp;h=484&amp;f=png&amp;s=36825" target="_blank" rel="external"><img src="https://user-gold-cdn.xitu.io/2019/4/26/16a58a9187e8ba91?w=1362&amp;h=484&amp;f=png&amp;s=36825" alt="2019-04-26_141307.png"></a></p>
+<p>然后我们需要在 <code>main.js</code> 文件当中修改下我们的配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Sentry.init(&#123;</div><div class="line">    dsn: <span class="string">'http://&lt;publickey&gt;:&lt;secretkey&gt;@xxx.xxx.xxx.xxx:9000/&lt;project id&gt;'</span>,</div><div class="line">    release: <span class="string">'pro@1.0.1'</span>, <span class="comment">// 新增加的+</span></div><div class="line">    integrations: [</div><div class="line">    <span class="keyword">new</span> Integrations.Vue(&#123;</div><div class="line">        Vue,</div><div class="line">        attachProps: <span class="literal">true</span></div><div class="line">    &#125;)</div><div class="line">    ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>配置完成后，执行 <code>npm run build</code> 打包，接下来就是把 <code>sourcemap</code> 上传到 <code>sentry</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sentry-cli releases -o 组织名 -p 项目名 files 版本号 upload-sourcemaps 打包后js的目录 --url-prefix 线上js访问地址</div><div class="line"></div><div class="line">sentry-cli releases -o sentry -p vue files dev@1.0.1 upload-sourcemaps dist\static\js --url-prefix ~/static/js</div></pre></td></tr></table></figure>
+<p><strong>特别注意！！</strong>，这个 <code>--url-prefix</code> 是你线上访问到js文件的路径，<code>~</code> 就是你网站的根目录，比如我网站的静态文件是这样 <code>http://192.168.144.163:8080/static/js/xxxx.js</code>，那么按照上面例子填就是正确的，因为我网站根目录就是 <code>http://192.168.144.163:8080</code>，上传成功后可以在 <code>Releases -&gt; Artifacts</code> 中看到刚才上传的文件</p>
+<p>在本地简单起一个 <code>nginx</code> 配置下，因为在 <code>dev</code> 环境下是访问不到 <code>sourcemap</code>，所以必须在 <code>prod</code> 环境下才能测试，继续简单触发一个错误，在网站上查看，会发现多了查看源码的选项</p>
+<p><a href="https://user-gold-cdn.xitu.io/2019/4/26/16a58a8f79472ac8?w=987&amp;h=333&amp;f=png&amp;s=15314" target="_blank" rel="external"><img src="https://user-gold-cdn.xitu.io/2019/4/26/16a58a8f79472ac8?w=987&amp;h=333&amp;f=png&amp;s=15314" alt="2019-04-26_143126.png"></a></p>
+<p>这样我们就可以成功定位到问题具体出现在哪个文件的哪一行，要删除map文件的话可以执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sentry-cli releases -o 组织名 -p 项目名 files 版本号 delete --all</div><div class="line"></div><div class="line">sentry-cli releases -o sentry -p vue files dev@1.0.1 delete --all</div></pre></td></tr></table></figure>
+<p>综上，基本就完成了 <code>vue</code> 与<code>sentry</code> 的结合了，美中不足的可能就是每次发布版本的话可能需要手动上传一次 sourcemap 文件，有兴趣的可以研究下 webpack 插件 <code>@sentry/webpack-plugin</code> ，在打包的同时上传到 <code>sentry</code> 去。</p>
+<h2 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h2><p>其中花费时间比较久的一个问题是在上传 <code>sourcemap</code> 文件的操作中，这个 <code>--url-prefix</code> 的值一定要准确，并且不需要用引号包裹，要注意，一般如果文件确实上传成功了，但还是没显示具体在哪一行的话，大部分原因还是可能 <code>sourcemap</code> 文件地址不正确，导致访问不到，所以解析不了，这点要注意！</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>搭建完成后，一旦有错误时我们就可以实时收集到，并可以看到错误的具体详情，分析然后排查问题，对于一些偶现的BUG很有作用，当然，<code>sentry</code> 能做到的只是查找你代码上发生的问题，对于业务上的错误还是要通过其他一些方法记录啦！</p>
+<p>有问题的欢迎在下方留言，尽量解答。文中有错误的也欢迎指出！</p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2019/10/16/JS中的【位操作符】浅识/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/10/14/记一次Sentry部署过程/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     

@@ -12,7 +12,7 @@
     
     <title>
         
-            归档 | 
+            JS中的【位操作符】浅识 | 
         
         Trick的Blog--搬砖工程师
     </title>
@@ -36,7 +36,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Trick">
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",Javascript">
 
     <!-- Site Verification -->
     
@@ -65,15 +65,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档 | Trick的Blog--搬砖工程师">
+    <meta property="og:title" content="JS中的【位操作符】浅识 | Trick的Blog--搬砖工程师">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="Javascript"> 
 
+    
+        <meta property="article:published_time" content="10月 16, 2019" />
+        <meta property="article:modified_time" content="10月 16, 2019" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档 | Trick的Blog--搬砖工程师">
+    <meta name="twitter:title" content="JS中的【位操作符】浅识 | Trick的Blog--搬砖工程师">
     <meta name="twitter:description" content="">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -81,13 +84,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/archives/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2019/10/16/JS中的【位操作符】浅识/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Trick的Blog--搬砖工程师",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Trick",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "前端路上的菜鸟"
+    },
+    "headline": "JS中的【位操作符】浅识",
+    "url": "http://yoursite.com/2019/10/16/JS中的【位操作符】浅识/index.html",
+    "datePublished": "10月 16, 2019",
+    "dateModified": "10月 16, 2019",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com"
+    }
+}
+</script>
 
 
     
@@ -275,275 +308,373 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+    <!-- Left aligned menu below button -->
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#位操作符"><span class="post-toc-number">2.</span> <span class="post-toc-text">位操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-基础概念"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1. 基础概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-操作符号-按位非（NOT）"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2. 操作符号 - 按位非（NOT）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-操作符号-按位与（AND）"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3. 操作符号 - 按位与（AND）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-操作符号-按位或（OR）"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">4. 操作符号 - 按位或（OR）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-操作符号-按异或（XOR）"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">5. 操作符号 - 按异或（XOR）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-操作符号-左移"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">6. 操作符号 - 左移</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-操作符号-有符号的右移"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">7. 操作符号 - 有符号的右移</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-操作符号-无符号的右移"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">8. 操作符号 - 无符号的右移</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#回到题目上"><span class="post-toc-number">3.</span> <span class="post-toc-text">回到题目上</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#小结"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">小结</span></a></li></ol></li></ol></li></ol>
+        <!--
+        <li class="mdl-menu__item">
+            Some Action
+        </li>
+        -->
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/10/16/JS中的【位操作符】浅识/">JS中的【位操作符】浅识</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            前言
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/10/16/JS中的【位操作符】浅识/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Trick's avatar">
-            </div>
-            <div>
-                <strong>Trick</strong>
-                <span>10月 16, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/10/16/前端错误监控-【Vue】与【Sentry】的结合/">前端错误监控 -【Vue】与【Sentry】的结合</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            前言作为一个前端，...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/10/16/前端错误监控-【Vue】与【Sentry】的结合/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Trick's avatar">
-            </div>
-            <div>
-                <strong>Trick</strong>
-                <span>10月 16, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2019/10/14/记一次Sentry部署过程/">记一次Sentry部署过程</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            前言
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2019/10/14/记一次Sentry部署过程/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Trick's avatar">
-            </div>
-            <div>
-                <strong>Trick</strong>
-                <span>10月 14, 2019</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/05/26/File文件上传/">File文件上传</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/05/26/File文件上传/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="Trick's avatar">
-            </div>
-            <div>
-                <strong>Trick</strong>
-                <span>5月 26, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-            <!-- Category -->
-            <span class="post_entry-category">
-                
-            </span>
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                JS中的【位操作符】浅识
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Trick</strong>
+        <span>10月 16, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Javascript/">Javascript</a>
+    </ul>
+    
+
+    <!-- Share -->
+    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=JS中的【位操作符】浅识&url=http://yoursite.com/2019/10/16/JS中的【位操作符】浅识/index.html&pic=&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=JS中的【位操作符】浅识&url=http://yoursite.com/2019/10/16/JS中的【位操作符】浅识/index.html&via=Trick" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/16/JS中的【位操作符】浅识/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/16/JS中的【位操作符】浅识/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><hr>
+<blockquote>
+<p>为什么会突然想写关于这个方面的知识点呢？一切源于在刷 <code>leetcode</code> 时候有道题需要用的相关知识点，最近在重温高程的时候刚好也看到这一节，就想着记录下。因为位操作这块知识点确实有很人去注意到。下面给上题目直达链接</p>
+</blockquote>
+<p>直达链接：<a href="https://leetcode-cn.com/problems/sum-of-two-integers/" target="_blank" rel="external">Sum of Two Integers</a> 可以在看文章之前试着能不能解答这道题目</p>
+<h2 id="位操作符"><a href="#位操作符" class="headerlink" title="位操作符"></a>位操作符</h2><hr>
+<h3 id="1-基础概念"><a href="#1-基础概念" class="headerlink" title="1. 基础概念"></a>1. 基础概念</h3><blockquote>
+<p>二进制数（binaries）是逢2进位的进位制，0、1是基本算符；计算机运算基础采用二进制。电脑的基础是二进制。在早期设计的常用的进制主要是十进制（因为我们有十个手指，所以十进制是比较合理的选择，用手指可以表示十个数字，0的概念直到很久以后才出现，所以是1－10而不是0－9）。电子计算机出现以后，使用电子管来表示十种状态过于复杂，所以所有的电子计算机中只有两种基本的状态，开和关。也就是说，电子管的两种状态决定了以电子管为基础的电子计算机采用二进制来表示数字和数据。</p>
+</blockquote>
+<p>在 <code>chrome</code> 中，当我们在控制台输入 <code>8+7</code> 的时候会很轻易的得到 <code>15</code>，可能在现实生活中我们可以通过掰手指头或者其他方式计算出来。但对于计算机来说，它只有 <code>0</code> 和 <code>1</code> ，那么计算机是如何计算出来这个数的呢？</p>
+<p>根据《高程》第三章所述，ECMAScript中的所有数值都以 <code>IEEE-754</code> 64位格式存储，但位操作符并不是直接操作64位，而是先将64位转成32位的整数，再执行操作，最后将结果转回64位。</p>
+<p>对于有符号的整数，32位中的前21位用于表示整数的值。第32位表示该数值的符号：0表示正数 1表示负数。即 <strong>符号位</strong> 。正数以纯二进制格式存储。例如数值 <code>18</code> 的二进制表示为：</p>
+<p><code>0000 0000 0000 0000 0000 0000 0001 0010</code> 或者更为简洁的 <code>10010</code></p>
+<p><a href="https://imgchr.com/i/nEyhrR" target="_blank" rel="external"><img src="https://user-gold-cdn.xitu.io/2019/9/4/16cfa49edb4cdb98?w=980&amp;h=518&amp;f=png&amp;s=96056" alt="nEyhrR.png"></a></p>
+<p>那么对于负数，同样是以二进制码存储，但使用的格式是 <code>二进制补码</code>，需经过下面3个步骤，以-18的二进制补码为例子：</p>
+<ol>
+<li><p>求这个数值绝对值的二进制码，即 18 的二进制码<br><code>0000 0000 0000 0000 0000 0000 0001 0010</code></p>
+</li>
+<li><p>然后求其二进制反码，即0和1互换<br><code>1111 1111 1111 1111 1111 1111 1110 1101</code></p>
+</li>
+<li><p>最后二进制反码加1</p>
+<p><code>1111 1111 1111 1111 1111 1111 1110 1101</code></p>
+<p><code>......................................1</code></p>
+<p>-——————————————</p>
+<p><code>1111 1111 1111 1111 1111 1111 1110 1110</code></p>
+</li>
+</ol>
+<p>这样可以得到 -18 的二进制表示。</p>
+<p>但是，ECMAScript不会这样展现一个负数的二进制码，在以一个二进制字符串形式输出一个负数的时候，我们看到的只是这个负数绝对值的二进制码前面加上了一个负号，这样似乎更符合我们平常逻辑</p>
+<p><a href="https://imgchr.com/i/nE6eZq" target="_blank" rel="external"><img src="https://user-gold-cdn.xitu.io/2019/9/4/16cfa4ac775299b9?w=686&amp;h=190&amp;f=png&amp;s=20604" alt="nE6eZq.png"></a></p>
+<h3 id="2-操作符号-按位非（NOT）"><a href="#2-操作符号-按位非（NOT）" class="headerlink" title="2. 操作符号 - 按位非（NOT）"></a>2. 操作符号 - 按位非（NOT）</h3><p>由 <code>~</code> 表示，按位非的结果就是返回数值的反码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num1 = <span class="number">25</span> <span class="comment">// 00000000000000000000000000011001</span></div><div class="line"><span class="keyword">var</span> num2 = -num1 <span class="comment">// 11111111111111111111111111100110</span></div><div class="line"><span class="built_in">console</span>.log(num2) <span class="comment">// -26</span></div></pre></td></tr></table></figure>
+<p>按位非操作的本质：<strong>操作数的负值减1</strong></p>
+<h3 id="3-操作符号-按位与（AND）"><a href="#3-操作符号-按位与（AND）" class="headerlink" title="3. 操作符号 - 按位与（AND）"></a>3. 操作符号 - 按位与（AND）</h3><p>由 <code>&amp;</code> 表示，<strong>同时为1时候才返回1，任何一位是0，结果都是0</strong>，真值表如下：</p>
+<table>
+<thead>
+<tr>
+<th>第一个数</th>
+<th>第二个数</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-操作符号-按位或（OR）"><a href="#4-操作符号-按位或（OR）" class="headerlink" title="4. 操作符号 - 按位或（OR）"></a>4. 操作符号 - 按位或（OR）</h3><p>由 <code>|</code> 表示，<strong>只要有一个为1，就返回1，只有在两个为0的情况才返回0</strong>，真值表如下：</p>
+<table>
+<thead>
+<tr>
+<th>第一个数</th>
+<th>第二个数</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-操作符号-按异或（XOR）"><a href="#5-操作符号-按异或（XOR）" class="headerlink" title="5. 操作符号 - 按异或（XOR）"></a>5. 操作符号 - 按异或（XOR）</h3><p>由 <code>^</code> 表示，<strong>两个数值对应位只有一个1时才返回1，如果两位都是1或者都是0，则返回0</strong>，真值表如下：</p>
+<table>
+<thead>
+<tr>
+<th>第一个数</th>
+<th>第二个数</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-操作符号-左移"><a href="#6-操作符号-左移" class="headerlink" title="6. 操作符号 - 左移"></a>6. 操作符号 - 左移</h3><p>由 <code>&lt;&lt;</code> 表示，该操作会将数值的所有位向左移动指定的位数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oldValue = <span class="number">2</span>; <span class="comment">// 二进制 10</span></div><div class="line"><span class="keyword">var</span> newValue = oldValue &lt;&lt; <span class="number">5</span>; <span class="comment">// 左移5位 10 00000 十进制位64</span></div></pre></td></tr></table></figure>
+<p>向左移动，就是原来的数值后面多出<strong>5</strong>个空位并以0来填充。</p>
+<h3 id="7-操作符号-有符号的右移"><a href="#7-操作符号-有符号的右移" class="headerlink" title="7. 操作符号 - 有符号的右移"></a>7. 操作符号 - 有符号的右移</h3><p>由 <code>&gt;&gt;</code> 表示，会将数值向右移动，保留符号位</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> oldValue = <span class="number">64</span>; <span class="comment">// 二进制 1000000</span></div><div class="line"><span class="keyword">var</span> newValue = oldValue &gt;&gt; <span class="number">5</span>; <span class="comment">// 右移5位 10 十进制位2</span></div></pre></td></tr></table></figure>
+<h3 id="8-操作符号-无符号的右移"><a href="#8-操作符号-无符号的右移" class="headerlink" title="8. 操作符号 - 无符号的右移"></a>8. 操作符号 - 无符号的右移</h3><p>由 <code>&gt;&gt;&gt;</code> 表示，和有符号右移不同的是，在负数的情况下，会把负数的二进制码当成正数的二进制码。由于负数以其绝对值的二进制补码形式表示，也就是数值中 <strong>1</strong> 会非常多，所以当无符号右移动时候变成正数，就会导致结果非常大</p>
+<h2 id="回到题目上"><a href="#回到题目上" class="headerlink" title="回到题目上"></a>回到题目上</h2><hr>
+<p>回到 <code>leetcode</code> 题目上，题意是要不使用 <code>+</code> 和 <code>-</code> 实现两个整数之和，既然不能使用加减符号，那就只能用底层位操作符来计算,我们先用 <strong>二进制</strong> 来算两个数的相加，这里以 <code>7+6</code> 为例子：</p>
+<p><a href="https://imgchr.com/i/nE6WY8" target="_blank" rel="external"><img src="https://user-gold-cdn.xitu.io/2019/9/4/16cfa4b56c9da2fd?w=692&amp;h=610&amp;f=png&amp;s=95870" alt="nE6WY8.png"></a></p>
+<p><code>1101</code> 转换成十进制就是 <code>13</code> 了。在这个过程我们看到主要处理了两个地方，一种是 <code>1+0</code> ，这种比较简单，结果就是 <code>1</code> ， 另一种就是 <code>1+1</code>，由于产生了进位，在 <strong>不考虑进位</strong> 的情况下结果是 <code>0</code> ，看到这里是不是觉得很熟悉。没错，这就是 <strong><u>异或</u></strong> <code>^</code> 的真值表结果。</p>
+<p>目前我们完成了在不考虑进位的情况下两数的相加，现在我们再来观察下进位应该怎么解决。观察上面图片，不难发现产生进位的情况就是在 <code>1+1</code> 的式子下，其他情况都不会产生进位。那我们要保存进位，加回原来异或结果的数值上。回过头想，这不就是 <strong><u>按位与</u></strong> <code>&amp;</code> 的真值表结果。</p>
+<p>理解这两步，就不难编写代码来实现两个数的相加，下面还是用 <code>7+6</code> 为例子来加深理解</p>
+<p><a href="https://imgchr.com/i/nE6vpF" target="_blank" rel="external"><img src="https://user-gold-cdn.xitu.io/2019/9/4/16cfa4be76952775?w=1676&amp;h=530&amp;f=png&amp;s=279563" alt="nE6vpF.png"></a></p>
+<p><a href="https://imgchr.com/i/nEcmXd" target="_blank" rel="external"><img src="https://user-gold-cdn.xitu.io/2019/9/4/16cfa4d1499ca7d7?w=1720&amp;h=548&amp;f=png&amp;s=245010" alt="nEcmXd.png"></a></p>
+<p>上述结果为 <code>1101</code> 即十进制位 <code>13</code>。其实过程总结就是以下3个步骤：</p>
+<ol>
+<li>a^b (异或，两数相加不进位)</li>
+<li>(a&amp;b)&lt;&lt;1 (相与保存进位并向左移一位)</li>
+<li>判断进位是否为0，不是的话将两个新的数从第一步开始继续相加操作，知道进位为0</li>
+</ol>
+<hr>
+<p>附上题目解答答案：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * @param &#123;number&#125; a</span></div><div class="line"><span class="comment"> * @param &#123;number&#125; b</span></div><div class="line"><span class="comment"> * @return &#123;number&#125;</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">var</span> getSum = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">let</span> sum = a^b</div><div class="line">    <span class="keyword">let</span> carry = (a&amp;b)&lt;&lt;<span class="number">1</span></div><div class="line">    </div><div class="line">    <span class="keyword">if</span> (carry !== <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">return</span> getSum(sum, carry)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> sum</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><hr>
+<p>其实，位操作在实际过程中使用的较少，我刚好也是看到这道题目比较感兴趣，才简单去了解下，对位操作也有了基本认识。文章有什么问题还请各位看官指出。</p>
+
+    
+
     
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/10/16/前端错误监控-【Vue】与【Sentry】的结合/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
